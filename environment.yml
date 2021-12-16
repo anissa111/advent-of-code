@@ -1,0 +1,8 @@
+name: aoc
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - numpy
+  - pandas
+  - xarray
