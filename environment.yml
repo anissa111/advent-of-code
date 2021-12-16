@@ -5,4 +5,7 @@ dependencies:
   - python
   - numpy
   - pandas
-  - xarray
+  - matplotlib
+  - pip
+  - pip:
+      advent-of-code-data
