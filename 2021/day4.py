@@ -2,10 +2,6 @@ import numpy as np
 from aocd.models import Puzzle
 
 
-def part1(input):
-    print("paer 1")
-
-
 def clean_input(raw):
     # get first row of input and separate by commas
     moves = raw.split()[0].split(',')
@@ -38,7 +34,7 @@ def part1(moves, boards):
     for i in range(len(moves))[4:]:
 
         # check boards with moves so far to see if there is a winning board
-        winboard = findWin(moves[:i], boards)
+        winboard, windex = findWin(moves[:i], boards)
 
         # if found, stop trying with additional moves
         if winboard is not None:
@@ -53,6 +49,38 @@ def part1(moves, boards):
     return score
 
 
+def part2(moves, boards):
+    # cycle through moves for all boards,
+    # starting with first 5 moves for minimum success case
+
+    for i in range(len(moves)+1)[4:]:
+
+        # check boards with moves so far to see if there is a winning board
+        winboard, windex = findWin(moves[:i], boards)
+
+        # find if multiple win boards for move
+        while winboard is not None:
+
+            # if found, remove it from boards list
+            if winboard is not None:
+                # save current move added
+                winarg = i
+
+                # remove board from boards list
+                boards = np.delete(boards, windex, axis=0)
+
+                lastwin = winboard
+                lastwinarg = winarg
+
+            # check boards with moves so far to see if there is another winning board
+            winboard, windex = findWin(moves[:i], boards)
+
+    # calculate score of last winning board:
+    score = scoreboard(lastwin, moves, lastwinarg)
+
+    return score
+
+
 def scoreboard(winboard, moves, winarg):
     score = 0
 
@@ -62,21 +90,24 @@ def scoreboard(winboard, moves, winarg):
             score = score + element
 
     # multiply by last number called
-    score = score * moves[winarg-1]
+    score = score * moves[winarg - 1]
 
     return score
 
 
 def findWin(moves, boards):
     # check all boards
+    index = 0
     for board in boards:
         iswin = checkwin(moves, board)
 
         if iswin:
-            return board
+            return board, index
+
+        index = index + 1
 
     # if no win board return, return None
-    return None
+    return None, None
 
 
 def checkwin(moves, board):
@@ -103,5 +134,7 @@ if __name__ == '__main__':
     moves, boards = clean_input(puzzle.input_data)
 
     answer1 = part1(moves, boards)
+    answer2 = part2(moves, boards)
 
     print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')
