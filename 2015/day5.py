@@ -26,12 +26,6 @@ def part2(data):
 def pairs(s):
 
     substrings = []
-
-    # # check for pairs, check next for overlap
-    # for i, j, k in zip(s, s[1:], s[2:]):
-    #     # if not overlapping, add to list    
-    #     if not (i == j and j == k):
-    #         substrings.append([i,j])
     
     # check for pairs, check next for overlap
     for i in range(len(s)-3):
