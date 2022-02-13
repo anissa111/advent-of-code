@@ -38,9 +38,6 @@ def pairs(s):
     substrings.append([s[-2],s[-1]])
     if s[-1] == s[-2] and s[-2] == s[-3]:
             return False  
-    
-    print(s)
-    print(substrings)
 
     # check substrings for duplicates
     for i in substrings:
