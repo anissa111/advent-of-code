@@ -27,23 +27,30 @@ def pairs(s):
 
     substrings = []
 
+    # # check for pairs, check next for overlap
+    # for i, j, k in zip(s, s[1:], s[2:]):
+    #     # if not overlapping, add to list    
+    #     if not (i == j and j == k):
+    #         substrings.append([i,j])
+    
     # check for pairs, check next for overlap
-    for i, j, k in zip(s, s[1:], s[2:]):
-        substrings.append([i,j])
-        if i == j and j == k:
-            # overlap occured, return false
-            return False
+    for i in range(len(s)-3):
+        # if not overlapping, add to list
+        if s[i] == s[i+1] and s[i] == s[i+2]:
+            if s[i] == s[i+3]:
+                substrings.append([s[i],s[i+1]])
+        else:
+            substrings.append([s[i],s[i+1]])    
     
     # check end of string
     substrings.append([s[-2],s[-1]])
-    if s[-1] == s[-2] and s[-2] == s[-3]:
-            return False  
+    substrings.append([s[-3],s[-2]])
 
     # check substrings for duplicates
     for i in substrings:
         if substrings.count(i) > 1:
             return True
-    
+
     return False
 
 def one_between(s):
