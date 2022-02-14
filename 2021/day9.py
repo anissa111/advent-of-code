@@ -1,4 +1,3 @@
-import numpy
 import numpy as np
 from aocd.models import Puzzle
 
