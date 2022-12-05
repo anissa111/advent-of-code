@@ -10,9 +10,7 @@ def part1(s, directions):
             s[d[2]-1].append(s[d[1]-1].pop())
 
     # get top of each stack
-    sf_top = []
-    for stack in s:
-        sf_top.append(stack.pop())
+    sf_top = [stack.pop() for stack in s]
     
     # convert to string and return
     return ''.join(sf_top)
@@ -27,9 +25,7 @@ def part2(s, directions):
         s[d[1]-1] = s[d[1]-1][:-(d[0])]
 
     # get top of each stack
-    sf_top = []
-    for stack in s:
-        sf_top.append(stack.pop())
+    sf_top = [stack.pop() for stack in s]
     
     # convert to string and return
     return ''.join(sf_top)
