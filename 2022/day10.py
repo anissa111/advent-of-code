@@ -18,8 +18,8 @@ print(f'Part 1: {sss}')
 l = 40
 for i, x in enumerate(register):
     # print out # or . without newline
-    if abs(x - (i%l)) <= 1: print('#', end='')
-    else: print('.', end='')
+    print('#' if abs(x - (i%l)) <= 1 else '.', end='')
 
     # if end of length, new line
-    if (i+1)%l == 0: print()
+    if (i+1)%l == 0: 
+        print()
