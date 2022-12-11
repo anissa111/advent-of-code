@@ -54,9 +54,10 @@ for _ in range(rounds):
             mod = prod(divs)
 
             # check condition
-            monkeys[true_cond[i]].append(curr % mod) if curr % divs[
-                i
-            ] == 0 else monkeys[false_cond[i]].append(curr % mod)
+            if curr % divs[i] == 0:
+                monkeys[true_cond[i]].append(curr % mod)
+            else:
+                monkeys[false_cond[i]].append(curr % mod)
 
 inspected.sort()
 inspected.reverse()
