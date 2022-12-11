@@ -1,6 +1,7 @@
 from aocd.models import Puzzle
 import re
 
+
 def part1(data):
     encompassed = 0
     for pair in data:
@@ -16,27 +17,31 @@ def part1(data):
 
     return encompassed
 
+
 def part2(data):
     # find sections that /don't/ overlap and subtract from total
-    total_sections = len(data)   # 1000
+    total_sections = len(data)  # 1000
     no_touch = 0
 
     for pair in data:
-        if (pair[1] < pair[2] and pair[0] < pair[2]) or (pair[3] < pair[0] and pair[2] < pair[0]):
+        if (pair[1] < pair[2] and pair[0] < pair[2]) or (
+            pair[3] < pair[0] and pair[2] < pair[0]
+        ):
             no_touch += 1
-    
+
     return total_sections - no_touch
 
 
 def clean_ranges(data):
-    return [list(map(int, re.split('-|,', d))) for d in data]
+    return [list(map(int, re.split("-|,", d))) for d in data]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     puzzle = Puzzle(2022, 4)
-    
+
     # convert string input to lists of ints
-    data = puzzle.input_data.split('\n')
-    
+    data = puzzle.input_data.split("\n")
+
     # clean and convert to integers
     clean_data = clean_ranges(data)
 
@@ -46,5 +51,5 @@ if __name__ == '__main__':
     # run part 2
     answer2 = part2(clean_data)
 
-    print(f'Part 1: {answer1}')
-    print(f'Part 2: {answer2}')
+    print(f"Part 1: {answer1}")
+    print(f"Part 2: {answer2}")

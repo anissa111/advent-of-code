@@ -1,44 +1,47 @@
 from re import sub
 from aocd.models import Puzzle
 
+
 def part1(data):
 
     nice = 0
 
     # check each string for naughtiness
-    for s in data.split('\n'):
+    for s in data.split("\n"):
         if three_vowels(s) and double_letter(s) and no_naughty(s):
             nice += 1
-    
+
     return nice
+
 
 def part2(data):
 
     nice = 0
 
     # check each string for naughtiness
-    for s in data.split('\n'):
+    for s in data.split("\n"):
         if pairs(s) and one_between(s):
             nice += 1
-    
+
     return nice
+
 
 def pairs(s):
 
     substrings = []
-    
+
     # check for pairs, check next for overlap
-    for i in range(len(s)-3):
+    for i in range(len(s) - 3):
         # if not overlapping, add to list
-        if s[i] == s[i+1] and s[i] == s[i+2]:
-            if s[i] == s[i+3]:
-                substrings.append([s[i],s[i+1]])
+        if s[i] == s[i + 1] and s[i] == s[i + 2]:
+            if s[i] == s[i + 3]:
+                substrings.append([s[i], s[i + 1]])
         else:
-            substrings.append([s[i],s[i+1]])    
-    
+            substrings.append([s[i], s[i + 1]])
+
     # check end of string
-    substrings.append([s[-2],s[-1]])
-    substrings.append([s[-3],s[-2]])
+    substrings.append([s[-2], s[-1]])
+    substrings.append([s[-3], s[-2]])
 
     # check substrings for duplicates
     for i in substrings:
@@ -47,41 +50,44 @@ def pairs(s):
 
     return False
 
+
 def one_between(s):
 
-    for i in range(len(s)-2):
-        if s[i] == s[i+2]:
+    for i in range(len(s) - 2):
+        if s[i] == s[i + 2]:
             return True
-    
+
     return False
 
 
 def three_vowels(s):
-    vowels = {'a','e','i','o','u'}
+    vowels = {"a", "e", "i", "o", "u"}
     total = sum([s.count(v) for v in vowels])
 
     if total >= 3:
         return True
-    
+
     return False
-    
+
 
 def double_letter(s):
-    for i in range(len(s)-1):
-        if s[i] == s[i+1]:
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
             return True
 
     return False
 
+
 def no_naughty(s):
-    naughty = {'ab', 'cd', 'pq', 'xy'}
+    naughty = {"ab", "cd", "pq", "xy"}
     for n in naughty:
         if n in s:
             return False
-    
+
     return True
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # import unique puzzle data
     puzzle = Puzzle(2015, 5)
     raw = puzzle.input_data
@@ -89,5 +95,5 @@ if __name__ == '__main__':
     answer1 = part1(raw)
     answer2 = part2(raw)
 
-    print(f'Part 1: {answer1}')
-    print(f'Part 2: {answer2}')
+    print(f"Part 1: {answer1}")
+    print(f"Part 2: {answer2}")

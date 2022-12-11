@@ -4,7 +4,7 @@ from aocd.models import Puzzle
 
 def clean_input(raw):
     # get first row of input and separate by commas
-    moves = raw.split()[0].split(',')
+    moves = raw.split()[0].split(",")
 
     # convert list of strings to list of ints
     moves = list(map(int, moves))
@@ -14,13 +14,13 @@ def clean_input(raw):
 
     # get number of boards in input
     size = 5
-    nboards = int(len(raw) / (size ** 2))  # will be 100
+    nboards = int(len(raw) / (size**2))  # will be 100
 
     # set up empty array for parsed boards
     boards = np.empty(shape=(nboards, size, size))
     for i in range(nboards):
         # parse next set of numbers into a 5x5
-        board = np.reshape(raw[i * size ** 2:i * size ** 2 + size ** 2], (size, size))
+        board = np.reshape(raw[i * size**2 : i * size**2 + size**2], (size, size))
 
         # store parsed board
         boards[i] = board
@@ -53,7 +53,7 @@ def part2(moves, boards):
     # cycle through moves for all boards,
     # starting with first 5 moves for minimum success case
 
-    for i in range(len(moves)+1)[4:]:
+    for i in range(len(moves) + 1)[4:]:
 
         # check boards with moves so far to see if there is a winning board
         winboard, windex = findWin(moves[:i], boards)
@@ -127,7 +127,7 @@ def checkwin(moves, board):
     return False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # import unique puzzle data
     puzzle = Puzzle(2021, 4)
 
@@ -136,5 +136,5 @@ if __name__ == '__main__':
     answer1 = part1(moves, boards)
     answer2 = part2(moves, boards)
 
-    print(f'Part 1: {answer1}')
-    print(f'Part 2: {answer2}')
+    print(f"Part 1: {answer1}")
+    print(f"Part 2: {answer2}")

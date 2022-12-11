@@ -3,7 +3,7 @@ from aocd.models import Puzzle
 
 
 def parse(raw):
-    input = [list(map(int, line)) for line in raw.split('\n')]
+    input = [list(map(int, line)) for line in raw.split("\n")]
     return input
 
 
@@ -17,13 +17,13 @@ def part1(input):
             above = below = left = right = 10
 
             if i > 0:
-                above = input[i-1][j]
-            if i < len(input)-1:
-                below = input[i+1][j]
+                above = input[i - 1][j]
+            if i < len(input) - 1:
+                below = input[i + 1][j]
             if j > 0:
-                left = input[i][j-1]
-            if j < len(input[0])-1:
-                right = input[i][j+1]
+                left = input[i][j - 1]
+            if j < len(input[0]) - 1:
+                right = input[i][j + 1]
 
             # print(f'[{input[i][j]}]: {above} {below} {left} {right}')
 
@@ -33,18 +33,18 @@ def part1(input):
     return totalrisk
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # import unique puzzle data
     puzzle = Puzzle(2021, 9)
 
     # parse input string into list of ints
     raw = puzzle.input_data
 
-    test_raw = '''2199943210
+    test_raw = """2199943210
 3987894921
 9856789892
 8767896789
-9899965678'''
+9899965678"""
 
     test_input = parse(test_raw)
     input = parse(raw)
@@ -52,5 +52,5 @@ if __name__ == '__main__':
     answer1 = part1(input)
     # answer2 = part2(test_input)
 
-    print(f'Part 1: {answer1}')
+    print(f"Part 1: {answer1}")
     # print(f'Part 2: {answer2}')
