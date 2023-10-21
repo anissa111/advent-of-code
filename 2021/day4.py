@@ -4,7 +4,7 @@ from aocd.models import Puzzle
 
 def clean_input(raw):
     # get first row of input and separate by commas
-    moves = raw.split()[0].split(",")
+    moves = raw.split()[0].split(',')
 
     # convert list of strings to list of ints
     moves = list(map(int, moves))
@@ -127,7 +127,7 @@ def checkwin(moves, board):
     return False
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # import unique puzzle data
     puzzle = Puzzle(2021, 4)
 
@@ -136,5 +136,5 @@ if __name__ == "__main__":
     answer1 = part1(moves, boards)
     answer2 = part2(moves, boards)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

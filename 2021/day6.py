@@ -24,16 +24,16 @@ def lifecycle(lf, days):
     return pop
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # import unique puzzle data
     puzzle = Puzzle(2021, 6)
 
-    input = np.array(list((map(int, puzzle.input_data.split(",")))))
+    input = np.array(list((map(int, puzzle.input_data.split(',')))))
 
     test_input = np.array([3, 4, 3, 1, 2])
 
     answer1 = lifecycle(input, 80)
     answer2 = lifecycle(input, 256)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

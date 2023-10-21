@@ -33,14 +33,14 @@ def part2(data):
 
 
 def clean_ranges(data):
-    return [list(map(int, re.split("-|,", d))) for d in data]
+    return [list(map(int, re.split('-|,', d))) for d in data]
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     puzzle = Puzzle(2022, 4)
 
     # convert string input to lists of ints
-    data = puzzle.input_data.split("\n")
+    data = puzzle.input_data.split('\n')
 
     # clean and convert to integers
     clean_data = clean_ranges(data)
@@ -51,5 +51,5 @@ if __name__ == "__main__":
     # run part 2
     answer2 = part2(clean_data)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

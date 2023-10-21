@@ -2,9 +2,9 @@ from aocd.models import Puzzle
 from math import dist, copysign
 
 puzzle = Puzzle(2022, 9)
-data = puzzle.input_data.split("\n")
+data = puzzle.input_data.split('\n')
 data = [[r.split()[0], int(r.split()[1])] for r in data]
-move_dict = {"U": [0, 1], "D": [0, -1], "L": [-1, 0], "R": [1, 0]}
+move_dict = {'U': [0, 1], 'D': [0, -1], 'L': [-1, 0], 'R': [1, 0]}
 
 
 def simulate(rope):
@@ -47,5 +47,5 @@ def move(knot, lead):
     return knot
 
 
-print(f"Part 1: {simulate([[0,0]] * 2)}")
-print(f"Part 2: {simulate([[0,0]] * 10)}")
+print(f'Part 1: {simulate([[0,0]] * 2)}')
+print(f'Part 2: {simulate([[0,0]] * 10)}')

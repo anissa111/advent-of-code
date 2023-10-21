@@ -43,15 +43,15 @@ def parse(raw):
     data = []
 
     # for every line, parse, sort, and add to data
-    for l in raw.split("\n"):
-        next = [int(x) for x in l.split("x")]
+    for l in raw.split('\n'):
+        next = [int(x) for x in l.split('x')]
         next.sort()
         data.append(next)
 
     return data
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     # import unique puzzle data
     puzzle = Puzzle(2015, 2)
@@ -62,5 +62,5 @@ if __name__ == "__main__":
     answer1 = part1(data)
     answer2 = part2(data)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

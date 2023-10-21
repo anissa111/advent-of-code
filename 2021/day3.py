@@ -3,7 +3,7 @@ from aocd.models import Puzzle
 
 
 def part1(input):
-    gamma_str = ""
+    gamma_str = ''
     for i in range(len(input[0])):
         b = most_common_bit(input, i)
         gamma_str = gamma_str + str(b)
@@ -15,7 +15,7 @@ def part1(input):
     epsilon = 1 - np.asarray([int(a) for a in gamma_str])
 
     # convert binary to decimal
-    epsilon = int("".join(str(x) for x in epsilon), 2)
+    epsilon = int(''.join(str(x) for x in epsilon), 2)
 
     return gamma * epsilon
 
@@ -41,8 +41,8 @@ def part2(input):
         if len(inputmin) == 1:
             break
 
-    oxygen = int("".join(str(x) for x in inputmax[0]), 2)
-    co2 = int("".join(str(x) for x in inputmin[0]), 2)
+    oxygen = int(''.join(str(x) for x in inputmax[0]), 2)
+    co2 = int(''.join(str(x) for x in inputmin[0]), 2)
 
     return oxygen * co2
 
@@ -69,12 +69,12 @@ def least_common_bit(input, position):
     return 1 - b.argmax()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # import unique puzzle data
     puzzle = Puzzle(2021, 3)
 
     # clean data
-    raw = puzzle.input_data.split("\n")
+    raw = puzzle.input_data.split('\n')
     # convert bits to individual ints
     for i in range(len(raw)):
         raw[i] = [int(a) for a in str(raw[i])]
@@ -85,5 +85,5 @@ if __name__ == "__main__":
     # run part 2
     answer2 = part2(raw)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

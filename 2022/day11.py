@@ -62,4 +62,4 @@ for _ in range(rounds):
 inspected.sort()
 inspected.reverse()
 
-print(f"Ans: {inspected[0] * inspected[1]}")
+print(f'Ans: {inspected[0] * inspected[1]}')

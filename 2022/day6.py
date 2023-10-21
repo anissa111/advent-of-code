@@ -10,7 +10,7 @@ def detect_unique(data, marker_size):
             return i + marker_size
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     puzzle = Puzzle(2022, 6)
 
     # get string
@@ -22,5 +22,5 @@ if __name__ == "__main__":
     # run part 2
     answer2 = detect_unique(data, 14)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

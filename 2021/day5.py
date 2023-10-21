@@ -10,8 +10,8 @@ def parse(raw):
     for i in range(int(len(raw) / 3)):
         vent = raw[i * 3 : i * 3 + 3]
 
-        p1 = list(map(int, vent[0].split(",")))
-        p2 = list(map(int, vent[2].split(",")))
+        p1 = list(map(int, vent[0].split(',')))
+        p2 = list(map(int, vent[2].split(',')))
 
         # check if horizonal or vertical
         if p1[0] == p2[0] or p1[1] == p2[1]:
@@ -68,18 +68,18 @@ def calculate_danger(vents):
     return danger
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # import unique puzzle data
     puzzle = Puzzle(2021, 5)
 
     vorh, diag = parse(puzzle.input_data)
 
     testv, testd = parse(
-        "0,9 -> 5,9\n8,0 -> 0,8\n9,4 -> 3,4\n2,2 -> 2,1\n7,0 -> 7,4\n6,4 -> 2,0\n0,9 -> 2,9\n3,4 -> 1,4\n0,0 -> 8,8\n5,5 -> 8,2"
+        '0,9 -> 5,9\n8,0 -> 0,8\n9,4 -> 3,4\n2,2 -> 2,1\n7,0 -> 7,4\n6,4 -> 2,0\n0,9 -> 2,9\n3,4 -> 1,4\n0,0 -> 8,8\n5,5 -> 8,2'
     )
 
     answer1 = calculate_danger(vorh)
     answer2 = calculate_danger(np.append(vorh, diag, axis=0))
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

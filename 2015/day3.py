@@ -11,13 +11,13 @@ def travel(data):
 
     # go through each direction
     for d in data:
-        if d == "^":
+        if d == '^':
             y += 1
-        elif d == "v":
+        elif d == 'v':
             y -= 1
-        elif d == ">":
+        elif d == '>':
             x += 1
-        elif d == "<":
+        elif d == '<':
             x -= 1
 
         # add the new house to the set
@@ -45,7 +45,7 @@ def part2(data):
     return len(santa_houses.union(robot_santa_houses)) - 1
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     # import unique puzzle data
     puzzle = Puzzle(2015, 3)
@@ -54,5 +54,5 @@ if __name__ == "__main__":
     answer1 = part1(raw)
     answer2 = part2(raw)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

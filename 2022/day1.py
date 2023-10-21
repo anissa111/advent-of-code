@@ -15,14 +15,14 @@ def part2(data):
     return sum(totals[:3])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     puzzle = Puzzle(2022, 1)
 
     # convert string input to lists of ints
     clean_data = []
     elf = []
-    for l in puzzle.input_data.split("\n"):
-        if l != "":
+    for l in puzzle.input_data.split('\n'):
+        if l != '':
             elf.append(int(l))
         else:
             clean_data.append(elf)
@@ -34,5 +34,5 @@ if __name__ == "__main__":
     # run part 2
     answer2 = part2(clean_data)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

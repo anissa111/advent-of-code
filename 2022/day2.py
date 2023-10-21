@@ -52,7 +52,7 @@ def tally(p1, p2, scorer):
     return sum(scores)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     puzzle = Puzzle(2022, 2)
 
     # convert string input to lists of ints
@@ -66,5 +66,5 @@ if __name__ == "__main__":
     # run part 2
     answer2 = tally(p1, p2, score_2)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

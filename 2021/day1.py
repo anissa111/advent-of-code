@@ -19,12 +19,12 @@ def part2(data):
     return deeper
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # import unique puzzle data
     puzzle = Puzzle(2021, 1)
 
     # convert string input to list of ints
-    clean_data = list(map(int, puzzle.input_data.split("\n")))
+    clean_data = list(map(int, puzzle.input_data.split('\n')))
 
     # run part 1
     answer1 = part1(clean_data)
@@ -32,5 +32,5 @@ if __name__ == "__main__":
     # run part 2
     answer2 = part2(clean_data)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

@@ -23,17 +23,17 @@ def minimize2(locs):
     return min(cost)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # import unique puzzle data
     puzzle = Puzzle(2021, 7)
 
     # parse input string into list of ints
-    input = np.array(list((map(int, puzzle.input_data.split(",")))))
+    input = np.array(list((map(int, puzzle.input_data.split(',')))))
 
     test_input = np.array([16, 1, 2, 0, 4, 2, 7, 1, 2, 14])
 
     answer1 = minimize(input)
     answer2 = minimize2(input)
 
-    print(f"Part 1: {answer1}")
-    print(f"Part 2: {answer2}")
+    print(f'Part 1: {answer1}')
+    print(f'Part 2: {answer2}')

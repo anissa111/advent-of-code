@@ -2,13 +2,13 @@ from aocd.models import Puzzle
 from math import prod
 
 puzzle = Puzzle(2022, 8)
-data = puzzle.input_data.split("\n")
-test_data = """30373
+data = puzzle.input_data.split('\n')
+test_data = '''30373
 25512
 65332
 33549
-35390""".split(
-    "\n"
+35390'''.split(
+    '\n'
 )
 
 # convert data to integer 2d
@@ -53,5 +53,5 @@ for i in range(len(data[0]))[1:-1]:
         scenic.append(prod(view))
 
 
-print(f"Part 1: {visible}")
-print(f"Part 2: {max(scenic)}")
+print(f'Part 1: {visible}')
+print(f'Part 2: {max(scenic)}')
