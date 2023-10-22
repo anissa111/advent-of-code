@@ -13,47 +13,18 @@ for instr in raw:
     match re.split(r'(\d+)', instr)[:-1]:
         case ['value ', val, ' goes to bot ', botnum]:
             bots[int(botnum)].append(int(val))
-        case [
-            'bot ',
-            botnum,
-            ' gives low to bot ',
-            botlow,
-            ' and high to bot ',
-            bothigh,
-        ]:
-            botinstr[int(botnum)] = ['bot-bot', int(botlow), int(bothigh)]
-        case [
-            'bot ',
-            botnum,
-            ' gives low to bot ',
-            botlow,
-            ' and high to output ',
-            outhigh,
-        ]:
-            botinstr[int(botnum)] = ['bot-out', int(botlow), int(outhigh)]
-        case [
-            'bot ',
-            botnum,
-            ' gives low to output ',
-            outlow,
-            ' and high to bot ',
-            bothigh,
-        ]:
-            botinstr[int(botnum)] = ['out-bot', int(outlow), int(bothigh)]
-        case [
-            'bot ',
-            botnum,
-            ' gives low to output ',
-            outlow,
-            ' and high to output ',
-            outhigh,
-        ]:
-            botinstr[int(botnum)] = ['out-out', int(outlow), int(outhigh)]
-
+        case ['bot ', botnum, ' gives low to bot ', botlow, ' and high to bot ', bothigh]:
+            botinstr[int(botnum)]= ['bot-bot', int(botlow), int(bothigh)]
+        case ['bot ', botnum, ' gives low to bot ', botlow, ' and high to output ', outhigh]:
+            botinstr[int(botnum)]= ['bot-out', int(botlow), int(outhigh)]
+        case ['bot ', botnum, ' gives low to output ', outlow, ' and high to bot ', bothigh]:
+            botinstr[int(botnum)]= ['out-bot', int(outlow), int(bothigh)]
+        case ['bot ', botnum, ' gives low to output ', outlow, ' and high to output ', outhigh]:
+            botinstr[int(botnum)]= ['out-out', int(outlow), int(outhigh)]
 
 def find_compare(bots, botinstr):
     while True:
-        readybots = [key for key in bots if len(bots[key]) > 1]
+        readybots = [key for key in bots if len(bots[key])>1]
         for bot in readybots:
             low, high = sorted(bots[bot])
             if low == 17 and high == 61:
@@ -63,13 +34,9 @@ def find_compare(bots, botinstr):
             botinstr.pop(bot)
             bots.pop(bot)
 
-
 def find_outs(bots, botinstr):
     outs = defaultdict(list)
-    while (
-        len(botinstr) > 0
-        and len(readybots := [key for key in bots if len(bots[key]) > 1]) > 0
-    ):
+    while len(botinstr) > 0 and len(readybots:=[key for key in bots if len(bots[key])>1]) > 0:
         for bot in readybots:
             low, high = sorted(bots[bot])
             match botinstr[bot][0]:
@@ -90,7 +57,6 @@ def find_outs(bots, botinstr):
             bots.pop(bot)
 
     return outs
-
 
 part1 = find_compare(bots, botinstr)
 print(f'Part 1: {part1}')
