@@ -6,11 +6,7 @@ from math import prod
 puzzle = Puzzle(2023,2).input_data.split('\n')
 #puzzle = Puzzle(2023,2).examples[0].input_data.split('\n')
 
-totalmax = {
-    'red': 12,
-    'green': 13,
-    'blue': 14,
-}
+totalmax = {'red': 12, 'green': 13, 'blue': 14,}
 
 possible_sum = 0
 power_sum = 0
